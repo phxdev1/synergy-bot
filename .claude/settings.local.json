@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(chmod:*)",
+      "Bash(./cog build)",
+      "Bash(./cog login)",
+      "Bash(./cog push r8.im/phxdev1/synergy-bot)"
+    ],
+    "deny": []
+  }
+}
