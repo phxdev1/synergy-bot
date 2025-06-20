@@ -1,88 +1,118 @@
-# SynergyBot 🏢
+# Corporate Synergy Bot 7B 🏢
 
-An LLM fine-tuned to generate corporate jargon, complicate meetings, and create meaningless titles. Transform simple communication into a corporate hellscape!
+A sophisticated language model that transforms casual communication into professional corporate speak and vice versa. Built with LoRA fine-tuning on Mistral-7B.
 
-## Features
+## Features 🚀
 
-- **Corporate Speak Translation**: Convert simple statements into buzzword-laden corporate jargon
-- **Meeting Complicator**: Turn simple meeting requests into multi-stakeholder alignment marathons  
-- **Title Inflator**: Generate ridiculously inflated corporate titles
-- **Buzzword Generator**: Create pure corporate buzzword salad on any topic
+- **Bidirectional Translation**: Casual ↔️ Corporate speak
+- **Domain Expertise**: Tech, Finance, Consulting, Healthcare, Retail, Manufacturing
+- **Seniority Awareness**: Junior to Executive communication styles
+- **Multi-turn Conversations**: Context-aware dialogue support
 
-## Installation
+## Quick Start
 
-```bash
-pip install -r requirements.txt
-python setup.py install
+### Use the Pre-trained Model
+
+```python
+from transformers import AutoTokenizer, AutoModelForCausalLM
+from peft import PeftModel
+
+# Load model
+base_model = "mistralai/Mistral-7B-Instruct-v0.2"
+tokenizer = AutoTokenizer.from_pretrained(base_model)
+model = AutoModelForCausalLM.from_pretrained(base_model)
+model = PeftModel.from_pretrained(model, "phxdev/corporate-synergy-bot-7b")
+
+# Transform text
+prompt = "Transform to corporate speak\nInput: let's meet\nOutput:"
+inputs = tokenizer(prompt, return_tensors="pt")
+outputs = model.generate(**inputs, max_length=100)
+print(tokenizer.decode(outputs[0]))
 ```
 
-## Usage
+### Try the Demo
 
-### Train the Model
+🌐 **Live Demo**: [Coming Soon - Space Link]
 
-First, train the SynergyBot model on corporate speak:
+### Examples
 
-```bash
-synergy-bot train
+**Casual → Corporate:**
+- "let's meet" → "Let's sync up to align on our objectives"
+- "good job" → "Excellent execution on those deliverables"
+- "I'm busy" → "My bandwidth is currently limited"
+
+**Corporate → Casual:**
+- "Let's circle back on this" → "Let's talk about this later"
+- "We need to leverage our synergies" → "We need to work together"
+
+## Project Structure
+
+```
+synergy-bot/
+├── src/                    # Core modules
+│   ├── enhanced_corporate_bot.py
+│   ├── corporate_decoder.py
+│   └── combined_corporate_bot.py
+├── training/               # Training scripts
+│   ├── autotrain_setup.py
+│   ├── train_lora.py
+│   └── train_cpu.py
+├── demo/                   # Demo applications
+│   ├── app.py             # Gradio interface
+│   └── demo_bidirectional.py
+├── utils/                  # Utility scripts
+│   └── generate_final_dataset.py
+└── data/                   # Training data
 ```
 
-This will:
-1. Generate a training dataset of corporate jargon examples
-2. Fine-tune a base LLM (default: Microsoft Phi-4) using LoRA
-3. Save the model to `models/synergy-bot`
+## Training Your Own Model
 
-### Command Line Interface
+### Dataset
+- **Hugging Face Dataset**: [phxdev/corporate-speak-dataset](https://huggingface.co/datasets/phxdev/corporate-speak-dataset)
+- 7,953 examples with bidirectional translations
+- Domain and seniority annotations
 
-Transform simple text:
-```bash
-synergy-bot synergize "let's fix this bug"
-# Output: "Let's leverage our agile methodologies to optimize system functionality"
+### Training Options
+
+1. **AutoTrain (Easiest)**
+   ```bash
+   python training/autotrain_setup.py
+   # Follow the generated instructions
+   ```
+
+2. **Google Colab**
+   - Use `training/train_colab.py`
+   - Free T4 GPU available
+
+3. **Local Training**
+   ```bash
+   pip install -r requirements.txt
+   python training/train_lora.py
+   ```
+
+## Model Details
+
+- **Base Model**: Mistral-7B-Instruct-v0.2
+- **Training Method**: LoRA (Low-Rank Adaptation)
+- **Parameters**: r=16, alpha=32
+- **Training Time**: ~2-3 hours on T4 GPU
+
+## Citation
+
+```bibtex
+@misc{corporate-synergy-bot,
+  author = {phxdev},
+  title = {Corporate Synergy Bot 7B},
+  year = {2024},
+  publisher = {Hugging Face},
+  url = {https://huggingface.co/phxdev/corporate-synergy-bot-7b}
+}
 ```
 
-Complicate meetings:
-```bash
-synergy-bot complicate "can we meet tomorrow?"
-# Output: Multiple paragraphs about stakeholder alignment, pre-meetings, and cascading action items
-```
+## License
 
-Generate corporate titles:
-```bash
-synergy-bot inflate "developer"
-# Output: "Chief Digital Transformation Architect & Innovation Evangelist"
-```
+Apache 2.0
 
-Create buzzword salad:
-```bash
-synergy-bot buzzwords --topic "product launch" --count 3
-```
+---
 
-### Interactive Mode
-
-```bash
-synergy-bot interactive
-```
-
-## Architecture
-
-The bot uses:
-- **Base Model**: Microsoft Phi-4 (or any Hugging Face causal LM)
-- **Fine-tuning**: LoRA (Low-Rank Adaptation) for efficient training
-- **Dataset**: Generated pairs of simple->corporate translations
-- **Framework**: Transformers + PEFT
-
-## Examples
-
-**Simple Statement → Corporate Speak:**
-- "good idea" → "paradigm-shifting value proposition"
-- "I disagree" → "I think we need to pivot our approach to maximize synergies"
-- "it's broken" → "we're experiencing suboptimal performance metrics"
-
-**Meeting Complications:**
-- "let's discuss" → Full stakeholder alignment process with pre-meetings and follow-ups
-
-**Title Inflation:**
-- "analyst" → "Senior Strategic Analytics Transformation Officer"
-
-## Contributing
-
-Feel free to add more corporate buzzwords, meeting complications, or training examples!
+*Remember: To maximize stakeholder value, we must leverage our synergies through collaborative paradigm shifts! 😄*

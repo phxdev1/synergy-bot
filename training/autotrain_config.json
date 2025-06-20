@@ -1,0 +1,28 @@
+{
+  "task": "text-generation",
+  "base_model": "mistralai/Mistral-7B-Instruct-v0.2",
+  "dataset": "phxdev/corporate-speak-dataset",
+  "column_mapping": {
+    "text": "text"
+  },
+  "project_name": "corporate-synergy-bot-7b-20250618",
+  "learning_rate": 0.0002,
+  "num_epochs": 3,
+  "batch_size": 4,
+  "warmup_ratio": 0.1,
+  "gradient_accumulation": 4,
+  "mixed_precision": "fp16",
+  "push_to_hub": true,
+  "hub_model_id": "phxdev/corporate-synergy-bot-7b",
+  "hub_private": false,
+  "use_peft": true,
+  "lora_r": 16,
+  "lora_alpha": 32,
+  "lora_dropout": 0.1,
+  "target_modules": [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj"
+  ]
+}

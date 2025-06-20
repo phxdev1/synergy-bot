@@ -1,0 +1,23 @@
+{
+  "model_name": "mistralai/Mistral-7B-Instruct-v0.2",
+  "dataset": "data/final_corporate_training.jsonl",
+  "output_dir": "corporate-speak-lora-final",
+  "training_args": {
+    "num_epochs": 3,
+    "batch_size": 4,
+    "learning_rate": 0.0002,
+    "warmup_steps": 100,
+    "eval_steps": 500
+  },
+  "lora_config": {
+    "r": 16,
+    "alpha": 32,
+    "dropout": 0.1,
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj"
+    ]
+  }
+}

@@ -5,7 +5,16 @@
       "Bash(chmod:*)",
       "Bash(./cog build)",
       "Bash(./cog login)",
-      "Bash(./cog push r8.im/phxdev1/synergy-bot)"
+      "Bash(./cog push r8.im/phxdev1/synergy-bot)",
+      "Bash(git checkout:*)",
+      "Bash(python:*)",
+      "Bash(pip install:*)",
+      "Bash(ls:*)",
+      "Bash(# Move core source files\nmv enhanced_corporate_bot.py src/\nmv corporate_decoder.py src/\nmv combined_corporate_bot.py src/\n\n# Move training scripts\nmv train_lora.py training/\nmv train_cpu.py training/\nmv train_simple.py training/\nmv train_colab.py training/\nmv autotrain_setup.py training/\n\n# Move demo scripts\nmv demo_bidirectional.py demo/\nmv demo_conversation.py demo/\nmv test_enhanced_bot.py demo/\nmv app.py demo/\n\n# Move utility scripts\nmv generate_final_dataset.py utils/\nmv prepare_hf_dataset.py utils/\nmv test_synergy.py utils/\n\n# Move config files\nmv config_*.json training/\nmv autotrain_config.json training/\nmv requirements_space.txt demo/)",
+      "Bash(rm:*)",
+      "Bash(tree:*)",
+      "WebFetch(domain:huggingface.co)",
+      "Bash(find:*)"
     ],
     "deny": []
   }

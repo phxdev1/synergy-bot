@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# Data
+data/*.jsonl
+data/*.json
+corporate-speak-dataset/
+corporate-speak-lora*/
+corporate-synergy-bot*/
+
+# Models
+*.bin
+*.safetensors
+*.pt
+*.pth
+
+# Logs
+logs/
+*.log
+tensorboard/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temp
+*.tmp
+*.bak
+.cache/
